@@ -8,6 +8,9 @@ import { Component, Input } from '@angular/core';
       .pad-left {
         margin-left: 10px;
       }
+      .well div {
+        color: #bbb;
+      }
     `,
   ],
 })
