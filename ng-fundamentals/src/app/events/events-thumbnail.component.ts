@@ -30,16 +30,9 @@ export class EventsThumbnailComponent {
     console.log('foo');
   }
 
-  getStartTimeClassObject() {
-    const isEarlyStart = this.event && this.event.time === '8:00 am';
-    return { green: isEarlyStart, bold: isEarlyStart };
-  }
-  getStartTimeClassString() {
-    if (this.event && this.event.time === '8:00 am') return 'green bold';
-    else return '';
-  }
-  getStartTimeClassArray() {
-    if (this.event && this.event.time === '8:00 am') return ['green', 'bold'];
-    else return [];
+  getStartTimeStyle(): any {
+    if (this.event && this.event.time === '8:00 am')
+      return { color: '#003300', 'font-weight': 'bold' };
+    else return {};
   }
 }
