@@ -6,7 +6,11 @@ import { EventsListComponent } from './events/events-list.component';
 import { EventRouteActivatorGuard } from './events/shared/event-route-activator.guard';
 
 export const appRoutes: Routes = [
-  { path: 'events/new', component: CreateEventComponent },
+  {
+    path: 'events/new',
+    component: CreateEventComponent,
+    canDeactivate: ['canDeactivateCreateEvent'],
+  },
   { path: 'events', component: EventsListComponent },
   {
     path: 'events/:id',

@@ -26,7 +26,21 @@ import { EventRouteActivatorGuard } from './events/shared/event-route-activator.
     CreateEventComponent,
     ErrorComponent,
   ],
-  providers: [EventsService, ToastrService, EventRouteActivatorGuard],
+  providers: [
+    EventsService,
+    ToastrService,
+    EventRouteActivatorGuard,
+    { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState },
+  ],
   bootstrap: [EventsAppComponent],
 })
 export class AppModule {}
+
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty) {
+    return window.confirm(
+      'You have not save this event , do you really want to cancel ?'
+    );
+  }
+  return true;
+}
